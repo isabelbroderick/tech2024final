@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        body {
+    background-color: rgb(189, 239, 245);
+    background-image: url(hills.jpeg);
+    background-size:contain;
+    background-repeat: no-repeat;
+    margin: 0; /* Remove default body margin */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    overflow-y: auto; /* Enable vertical overflow with scrollbars */
+}
+
+  
+        .mydiv { 
+            width: 50px; 
+            height: 50px;
+            background-color: none;
+            position: relative;
+            left: 0; /* Position at the leftmost point of the screen */
+            top: 250px;
+        }
+
+        .mydiv img { 
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+
+        .mydiv2 { 
+            width: 50px; 
+            height: 50px;
+            background-color: none;
+            position: relative;
+            left: 100px; /* Position at the leftmost point of the screen */
+            top: 150px;
+        }
+
+        .mydiv2 img { 
+            width: 190px;
+            height: 190px;
+            position: absolute;
+        }
+        
+        .mydiv3 { 
+            width: 200px; 
+            height: 150px; 
+            position: relative; 
+            left: 30%;
+        }
+
+        .mydiv3 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -250px; /* Position at the bottom of the container */
+        }
+        .mydiv4 { 
+            width: 60px; 
+            height: 70px; 
+            position: relative; 
+            left: 100px;
+        }
+        .mydiv4 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -130px; /* Position at the bottom of the container */
+        }
+
+        .mydiv5 { 
+            width: 100px; 
+            height: 50px; 
+            position: relative; 
+            left: 180px;
+        }
+
+        .mydiv5 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -200px; /* Position at the bottom of the container */
+        }
+
+        .mydiv6 { 
+            width: 150px; 
+            height: 100px; 
+            position: relative; 
+            left: 300px;
+        }
+
+        .mydiv6 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -150px; /* Position at the bottom of the container */
+        }
+
+        .mydiv7 { 
+            width: 70px; 
+            height: 70px;
+            background-color: none;
+            position: relative;
+            left: 0; /* Position at the leftmost point of the screen */
+            top: -350px;
+        }
+
+        .mydiv7 img { 
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .mydiv8 { 
+            width: 70px; 
+            height: 70px;
+            background-color: none;
+            position: relative;
+            left: 0; /* Position at the leftmost point of the screen */
+            bottom: 150px;
+        }
+
+        .mydiv8 img { 
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .mydiv9 { 
+            width: 70px; 
+            height: 150px;
+            background-color: none;
+            position: relative;
+            left: 1200px; 
+            bottom: 150px;
+        }
+
+        .mydiv9 img { 
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .mydiv10 { 
+            width: 150px; 
+            height: 100px; 
+            position: relative; 
+            left: 300px;
+        }
+
+        .mydiv10 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -500px; /* Position at the bottom of the container */
+        }
+        .mydiv11 { 
+            width: 40px; 
+            height: 65px; 
+            position: relative; 
+            left: 800px;
+        }
+
+        .mydiv11 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -450px; /* Position at the bottom of the container */
+        }
+
+        .mydiv12 { 
+            width: 35px; 
+            height: 55px; 
+            position: relative; 
+            left: 1000px;
+        }
+
+        .mydiv12 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -450px; /* Position at the bottom of the container */
+        }
+
+
+
+        .mydiv13 { 
+            width: 40px; 
+            height: 65px; 
+            position: relative; 
+            left: 150px;
+        }
+
+        .mydiv13 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -400px; /* Position at the bottom of the container */
+        }
+
+        .mydiv14 { 
+            width: 35px; 
+            height: 55px; 
+            position: relative; 
+            left: 200px;
+        }
+
+        .mydiv14 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -600px; /* Position at the bottom of the container */
+        }
+   </style>
+</head>
+<body>
+    <h1> LEVEL 3  <button id="startButton" onclick="start()" enabled>Start</button> </h1> 
+   
+    <h2 id="message">Score: 0</h2>
+    <script src="java3.js"></script>
+    
+    <div class="mydiv" id="mydiv" onclick="tuesday()">  
+        <img src="tui.png" id="bird1">
+    </div>
+    <div class="mydiv2" id="mydiv2" onclick="wednesday()">
+        <img src="bird1.png" id="bird2"> 
+    </div>
+
+    <div class="mydiv3" id="mydiv3" onclick="thursday ()"> 
+        <img src="poss.png" id="poss">
+    </div>
+
+    <div class="mydiv4" id="mydiv4" onclick="friday()">
+    <img src="rat.png" id="rat"> </div>
+
+    <div class="mydiv5" id="mydiv5" onclick="sataday()">
+    <img src="stoat.png" id="stoat"> </div>
+            
+    <div class="mydiv6" id="mydiv6" onclick="sunday()">
+    <img src="kiwi.png" id="kiwi"> </div>
+
+    <div class="mydiv7" id="mydiv6" onclick="monday()">
+     <img src="pigeon.png" id="pigeon"> </div>
+
+    <div class="mydiv8" id="mydiv8" onclick="january()">
+    <img src="kak.png" id="kak"> </div>
+
+    <div class="mydiv9" id="mydiv9" onclick="february()">
+    <img src="RatU.png" id="ratu"> </div>
+
+    <div class="mydiv10" id="mydiv10" onclick="march()">
+    <img src="Kereru.png" id="Kereru"> </div>
+
+    <div class="mydiv11" id="mydiv11" onclick="april()">
+    <img src="butterfly.png" id="bfly"> </div>
+
+    <div class="mydiv12" id="mydiv12" onclick="may()">
+    <img src="whitebutterfly.png" id="wfly"> </div>
+
+    <div class="mydiv13" id="mydiv13" onclick="april2()">
+        <img src="butterfly.png" id="bfly2"> </div>
+    
+        <div class="mydiv14" id="mydiv14" onclick="may2()">
+        <img src="whitebutterfly.png" id="wfly2"> </div>
+    
+
+
+                    
+                        
+                        
+                    
+                    
+                
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        body {
+            background-color: rgb(189, 239, 245);
+            background-image: url(hills.jpeg);  
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0; /* Remove default body margin */
+            overflow-x: hidden; /* Hide horizontal overflow */
+    overflow-y: auto; /* Enable vertical overflow with scrollbars */
+        }
+  
+        .mydiv { 
+            width: 50px; 
+            height: 50px;
+            background-color: none;
+            position: relative;
+            left: 0; /* Position at the leftmost point of the screen */
+            top: 250px;
+        }
+
+        .mydiv img { 
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+
+        .mydiv2 { 
+            width: 50px; 
+            height: 50px;
+            background-color: none;
+            position: relative;
+            left: 100px; /* Position at the leftmost point of the screen */
+            top: 150px;
+        }
+
+        .mydiv2 img { 
+            width: 190px;
+            height: 190px;
+            position: absolute;
+        }
+        
+        .mydiv3 { 
+            width: 200px; 
+            height: 150px; 
+            position: relative; 
+            left: 30%;
+        }
+
+        .mydiv3 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -250px; /* Position at the bottom of the container */
+        }
+        .mydiv4 { 
+            width: 60px; 
+            height: 70px; 
+            position: relative; 
+            left: 100px;
+        }
+        .mydiv4 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -130px; /* Position at the bottom of the container */
+        }
+
+        .mydiv5 { 
+            width: 100px; 
+            height: 50px; 
+            position: relative; 
+            left: 180px;
+        }
+
+        .mydiv5 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -200px; /* Position at the bottom of the container */
+        }
+
+        .mydiv6 { 
+            width: 150px; 
+            height: 100px; 
+            position: relative; 
+            left: 300px;
+        }
+
+        .mydiv6 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -150px; /* Position at the bottom of the container */
+        }
+
+        .mydiv7 { 
+            width: 70px; 
+            height: 70px;
+            background-color: none;
+            position: relative;
+            left: 0; /* Position at the leftmost point of the screen */
+            top: -350px;
+        }
+
+        .mydiv7 img { 
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .mydiv8 { 
+            width: 70px; 
+            height: 70px;
+            background-color: none;
+            position: relative;
+            left: 0; /* Position at the leftmost point of the screen */
+            bottom: 150px;
+        }
+
+        .mydiv8 img { 
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .mydiv9 { 
+            width: 70px; 
+            height: 150px;
+            background-color: none;
+            position: relative;
+            left: 1200px; 
+            bottom: 150px;
+        }
+
+        .mydiv9 img { 
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid black;
+            z-index: 9999; /* Ensure popup appears on top of other elements */
+        }
+
+        .popup-content {
+            text-align: center;
+        max-height: 400px; /* Set a fixed height for the popup content */
+        overflow-y: auto; /* Enable vertical scrolling */
+        } 
+/* Grid styles */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-auto-rows: minmax(100px, auto); /* Auto-sized rows */
+    gap: 10px; /* Gap between grid items */
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+        
+   </style>
+   </style>
+</head>
+<body>
+    <h1> LEVEL 1  <button id="startButton" onclick="start()" disabled>Start</button>
+    </h1> 
+   
+    <h2 id="message">Score: 0</h2>
+    <div id="highScore"></div>
+   
+    
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h1>Instructions</h1>
+            <p> hi welcome to pest persuit, the aim of this game is to kill the pests while leaving the native animals alone. below are a list of animals you may encouter at on various levels </p>
+            <div class="grid-container">
+                
+                <div class="grid-item"> <img src="tui.png"  style="max-width: 50%;"></div>
+                <div class="grid-item">tui, an endemic  nz bird, killing will minus 1 point</div>
+                <div class="grid-item"> <img src="bird1.png"  style="max-width: 50%;"></div>
+                <div class="grid-item"> Bellbird | Korimako an endemic nz bird killing will minus 1 point </div>
+                <div class="grid-item"> <img src="poss.png"  style="max-width: 50%;"></div>
+                <div class="grid-item"> Possum a pest to the NZ eco-system worth 1 point </div>
+                <div class="grid-item">  <img src="rat.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> rat a pest to the NZ eco-system worth 1 point </div>
+                <div class="grid-item">  <img src="stoat.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> stoat a pest to the NZ eco-system worth 1 point </div>
+                <div class="grid-item">  <img src="kiwi.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> kiwi an endemic nz bird killing will minus 1 point  </div>
+                 <div class="grid-item">  <img src="pigeon.png"  style="max-width: 20%;"> </div>
+                <div class="grid-item"> pigeon a pest to the NZ eco-system worth 1 point </div>
+                 <div class="grid-item">  <img src="kak.png"  style="max-width: 20%;"> </div>
+                <div class="grid-item"> kakapo an endemic nz bird killing will minus 1 point  </div>
+                <div class="grid-item">  <img src="Kereru.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> kereru an endemic nz bird killing will minus 1 point  </div>
+                <div class="grid-item">  <img src="whitebutterfly.png"  style="max-width: 20%;"> </div>
+                <div class="grid-item"> great white butterfly a pest to the NZ eco-system worth 3 points </div>
+                <div class="grid-item">  <img src="butterfly.png"  style="max-width: 20%;"> </div>
+                <div class="grid-item"> monarch butterfly  a native butterfly to nz killing will minus 3 point  </div>
+
+                <div class="grid-item">  <img src="wasp1.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> wasp a pest to the NZ eco-system worth 5points </div>
+                <div class="grid-item">  <img src="bee2.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> NZ Digger bee a native bess to nz killing will minus 5 point  </div>
+
+            </div>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+    
+    
+    <div class="mydiv" id="mydiv" onclick="tuesday()">  
+        <img src="tui.png" id="bird1">
+    </div>
+    <div class="mydiv2" id="mydiv2" onclick="wednesday()">
+        <img src="bird1.png" id="bird2"> 
+    </div>
+
+    <div class="mydiv3" id="mydiv3" onclick="thursday ()"> 
+        <img src="poss.png" id="poss">
+    </div>
+
+    <div class="mydiv4" id="mydiv4" onclick="friday()">
+        <img src="rat.png" id="rat"> </div>
+
+     <div class="mydiv5" id="mydiv5" onclick="sataday()">
+      <img src="stoat.png" id="stoat"> </div>
+            
+     <div class="mydiv6" id="mydiv6" onclick="sunday()">
+     <img src="kiwi.png" id="kiwi"> </div>
+
+        <div class="mydiv7" id="mydiv6" onclick="monday()">
+         <img src="pigeon.png" id="pigeon"> </div>
+
+        <div class="mydiv8" id="mydiv8" onclick="january()">
+        <img src="kak.png" id="kak"> </div>
+
+        <div class="mydiv9" id="mydiv9" onclick="february()">
+        <img src="RatU.png" id="ratu"> </div>
+                        
+                    
+        <script src="java1.js"></script>
+        
+                
+</body>
+</html>

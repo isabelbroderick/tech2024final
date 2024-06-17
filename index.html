@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(182, 245, 182);
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+        }
+        
+        .menubar {
+            background-color: rgba(92, 100, 102, 0.8);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
+
+        .play-now-button {
+            background-color: rgb(255, 255, 255);
+            border: 2px solid black;
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            font-size: 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .infobirds, .infopests {
+            background-color: rgb(255, 255, 255);
+            border: 2px solid black;
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            font-size: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        .header {
+            background-color: rgba(108, 215, 247, 0.8);
+            padding: 20px 0;
+            margin-bottom: -1px; /* Adjusted to remove space between header and content */
+            position: relative;
+        }
+        
+        .header h1 {
+            color: rgb(0, 0, 0);
+            font-size: 70px;
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+        }
+        
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -1px; /* Adjusted to remove space between header and content */
+        }
+        
+        .content img {
+            width: 50%; /* Take up half the page */
+            height: 50%; /* Maintain aspect ratio */
+            margin-right: 20px;
+        }
+        
+        .text-box {
+            flex: 1; /* Take up the remaining space */
+            background-color: rgb(152, 220, 162);
+            border: 4px solid rgb(58, 133, 70);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .text-box p {
+            font-size: 30px; 
+            color: #333; 
+            margin: 0px;
+        }
+
+        /* Style for the popup container */
+        .popup {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            z-index: 1000; /* Ensure it appears on top */
+        }
+
+        /* Style for popup buttons */
+        .popup button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            border: 2px solid black;
+            background-color: rgb(255, 255, 255);
+            border-radius: 5px;
+        }
+
+        
+        .popup1 {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid black;
+            z-index: 9999; /* Ensure popup appears on top of other elements */
+        }
+
+        .popup-content {
+            text-align: center;
+        max-height: 400px; /* Set a fixed height for the popup content */
+        overflow-y: auto; /* Enable vertical scrolling */
+        } 
+/* Grid styles */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-auto-rows: minmax(100px, auto); /* Auto-sized rows */
+    gap: 10px; /* Gap between grid items */
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="menubar">
+        <div class="buttons">
+            <button class="play-now-button" onclick="showLevels()">Play Now</button>
+            <button class="infobirds" onclick="showin()">  instructions </button>
+            <button onclick="window.location.href='https://www.doc.govt.nz/nature/native-animals/birds/birds-a-z/'" class="infobirds">Info Birds</button>
+            <button onclick="window.location.href='https://www.doc.govt.nz/nature/pests-and-threats/animal-pests/#:~:text=Predators%20such%20as%20possums%2C%20rats,damage%20native%20plants%20and%20habitats'" class="infopests">Info pests</button>
+        </div>
+        <div class="sign">
+            <button class="infobirds" onclick="window.location.href='profile.html';">Profile</button>
+        </div>
+    </div>
+    
+    <div class="header">   
+        <h1>Guardians of Aotearoa <br> Pest Pursuit</h1>
+    </div>
+    
+    <div class="content">
+        <img src="pests.webp" alt="Your Image">
+        <div class="text-box">
+            <p>Welcome to Pest Pursuit! <br> It's really important to stop pests because they eat the eggs and babies of our native birds. This makes it hard for the birds to have babies and grow in numbers. By getting rid of pests, we help our native birds stay safe and have more babies. This keeps our environment healthy and balanced.</p>
+        </div>
+    </div>
+
+    <!-- Popup for level selection -->
+    <div id="levelPopup" class="popup">
+        <h1> starting on level 1 is recomended </h1>
+        <button onclick="window.location.href='level1.html';">Level 1</button>
+        <button onclick="window.location.href='level2.html';">Level 2</button>
+        <button onclick="window.location.href='level3.html';">Level 3</button>
+        <button onclick="window.location.href='level4.html';">Level 4</button>
+        <button onclick="window.location.href='login.html';">Level 5</button>
+        <button onclick="window.location.href='index.html';"> back </button>
+    </div>
+
+    <div id="popup" class="popup1">
+        <div class="popup-content">
+            <h1>Instructions</h1>
+            <p> hi welcome to pest persuit, the aim of this game is to kill the pests while leaving the native animals alone. below are a list of animals you may encouter at on various levels </p>
+            <div class="grid-container">
+                
+                <div class="grid-item"> <img src="tui.png"  style="max-width: 50%;"></div>
+                <div class="grid-item">tui, an endemic  nz bird, killing will minus 1 point</div>
+                <div class="grid-item"> <img src="bird1.png"  style="max-width: 50%;"></div>
+                <div class="grid-item"> Bellbird | Korimako an endemic nz bird killing will minus 1 point </div>
+                <div class="grid-item"> <img src="poss.png"  style="max-width: 50%;"></div>
+                <div class="grid-item"> Possum a pest to the NZ eco-system worth 1 point </div>
+                <div class="grid-item">  <img src="rat.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> rat a pest to the NZ eco-system worth 1 point </div>
+                <div class="grid-item">  <img src="stoat.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> stoat a pest to the NZ eco-system worth 1 point </div>
+                <div class="grid-item">  <img src="kiwi.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> kiwi an endemic nz bird killing will minus 1 point  </div>
+                 <div class="grid-item">  <img src="pigeon.png"  style="max-width: 20%;"> </div>
+                <div class="grid-item"> pigeon a pest to the NZ eco-system worth 1 point </div>
+                 <div class="grid-item">  <img src="kak.png"  style="max-width: 20%;"> </div>
+                <div class="grid-item"> kakapo an endemic nz bird killing will minus 1 point  </div>
+                <div class="grid-item">  <img src="Kereru.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> kereru an endemic nz bird killing will minus 1 point  </div>
+                <div class="grid-item">  <img src="whitebutterfly.png"  style="max-width: 20%;"> </div>
+                <div class="grid-item"> great white butterfly a pest to the NZ eco-system worth 3 points </div>
+                <div class="grid-item">  <img src="butterfly.png"  style="max-width: 20%;"> </div>
+                <div class="grid-item"> monarch butterfly  a native butterfly to nz killing will minus 3 point  </div>
+
+                <div class="grid-item">  <img src="wasp1.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> wasp a pest to the NZ eco-system worth 5points </div>
+                <div class="grid-item">  <img src="bee2.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> NZ Digger bee a native bess to nz killing will minus 5 point  </div>
+
+            </div>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    <script>
+        function showLevels() {
+            // Display the popup
+            var popup = document.getElementById('levelPopup');
+            if (popup) {
+                popup.style.display = 'block';
+            }
+        }
+
+        
+        function showin() {
+            // Display the popup
+            var popup = document.getElementById('popup');
+            if (popup) {
+                popup.style.display = 'block';
+            }
+        }
+
+        function closePopup() {
+        // Close the popup
+        var popup = document.getElementById('popup');
+        if (popup) {
+            popup.style.display = 'none';
+        }
+    }
+    
+    </script>
+</body>
+</html>

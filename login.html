@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login/sign up to save your highscore</title>
+    <!-- Cool Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+    <style>
+        .body { 
+            align-items: center;
+        }
+
+        #formContainer {
+            width: 100%;
+            height: 100%;
+           
+            box-shadow: 0 0 50px -20px #000;
+            border-radius: 2%;
+            overflow: hidden;
+            background-color: lightblue;
+            align-content: center; 
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            
+            width: 30%;
+            height: 70%;
+            align-items: center;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+        }
+
+        #formHeaderContainer {
+            width: 100%;
+            height: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            float: left;
+            padding: 20px;
+            padding-bottom: 30px;
+            padding-top: 30px;
+            border-bottom: 1px solid transparent;
+            background: #000;
+        }
+
+        #formHeader {
+            display: inline-block;
+            font-size: 15px;
+            font-family: Bowlby One SC;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        #formContentContainer {
+            width: 100%;
+            height: 90%;
+            float: left;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 30px;
+        }
+
+        #formContentInnerContainer {
+            width: 75%;
+            height: 100%;
+            color: #000000;
+            float: left;
+        }
+
+        input {
+            width: 100%;
+            height: 40px;
+            padding-left: 10px;
+            margin-bottom: 20px;
+            background: #ffffff;
+            font-family: Montserrat;
+            font-weight: 500;
+            color: #000000;
+            font-size: 12px;
+            background-color: rgb(255, 255, 255);
+            border-bottom: 2px solid transparent;
+            border-top-left-radius: 2%;
+            border-top-right-radius: 2%;
+            align-items: center;
+        }
+
+        #buttonContainer {
+            width: 100%;
+            height: 10%;
+            background-color: white;
+            color: #fff;
+            float: left;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #signUpButton, #signInButton {
+    border-radius: 1px; 
+    width: 48%; 
+    height: 100%; 
+    background: black;
+    color: inherit;
+    font-family: Montserrat;
+    letter-spacing: 1px;
+    font-weight: 900;
+    font-size: 20px;
+    margin: 10px 1%; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; 
+}
+        .button-51 { 
+            background-color: transparent;
+            border: 1px solid #266DB6;
+            box-sizing: border-box;
+            color: #00132C;
+            font-family: "Avenir Next LT W01 Bold", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 24px;
+            padding: 16px 23px;
+            position: relative;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            left: 1200px;
+            top: -300px;
+        }
+
+        .button-51:hover,
+        .button-51:active {
+            outline: 0;
+        }
+
+        .button-51:hover {
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .button-51:before {
+            background-color: #D5EDF6;
+            content: "Home";
+            height: calc(100% + 3px);
+            position: absolute;
+            right: -7px;
+            top: -9px;
+            transition: background-color 300ms ease-in;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .button-51:hover:before {
+            background-color: #6DCFF6;
+        }
+
+        @media (min-width: 768px) {
+            .button-51 {
+                padding: 16px 32px;
+            }
+        }
+
+        #game {
+            display: block;     
+            background-color: rgb(189, 239, 245);
+            background-image: url(hills.jpeg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 0; /* Remove default body margin */
+            overflow-x: hidden; /* Hide horizontal overflow */
+            overflow-y: auto; /* Enable vertical overflow with scrollbars */
+        }
+
+        .mydiv { 
+            width: 50px; 
+            height: 50px;
+            background-color: none;
+            position: relative;
+            left: 0; /* Position at the leftmost point of the screen */
+            top: 250px;
+        }
+
+        .mydiv img { 
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+
+        .mydiv2 { 
+            width: 50px; 
+            height: 50px;
+            background-color: none;
+            position: relative;
+            left: 100px; /* Position at the leftmost point of the screen */
+            top: 150px;
+        }
+
+        .mydiv2 img { 
+            width: 190px;
+            height: 190px;
+            position: absolute;
+        }
+
+        .mydiv3 { 
+            width: 200px; 
+            height: 150px; 
+            position: relative; 
+            left: 30%;
+        }
+
+        .mydiv3 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -250px; /* Position at the bottom of the container */
+        }
+
+        .mydiv4 { 
+            width: 60px; 
+            height: 70px; 
+            position: relative; 
+            left: 100px;
+        }
+
+        .mydiv4 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -130px; /* Position at the bottom of the container */
+        }
+
+        .mydiv5 { 
+            width: 100px; 
+            height: 50px; 
+            position: relative; 
+            left: 180px;
+        }
+
+        .mydiv5 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -200px; /* Position at the bottom of the container */
+        }
+
+        .mydiv6 { 
+            width: 150px; 
+            height: 100px; 
+            position: relative; 
+            left: 300px;
+        }
+
+        .mydiv6 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -150px; /* Position at the bottom of the container */
+        }
+
+        .mydiv7 { 
+            width: 70px; 
+            height: 70px;
+            background-color: none;
+            position: relative;
+            left: 0; /* Position at the leftmost point of the screen */
+            top: -350px;
+        }
+
+        .mydiv7 img { 
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .mydiv8 { 
+            width: 70px; 
+            height: 70px;
+            background-color: none;
+            position: relative;
+            left: 0; /* Position at the leftmost point of the screen */
+            bottom: 150px;
+        }
+
+        .mydiv8 img { 
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .mydiv9 { 
+            width: 70px; 
+            height: 150px;
+            background-color: none;
+            position: relative;
+            left: 1200px; 
+            bottom: 150px;
+        }
+
+        .mydiv9 img { 
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .mydiv10 { 
+            width: 150px; 
+            height: 100px; 
+            position: relative; 
+            left: 300px;
+        }
+
+        .mydiv10 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -500px; /* Position at the bottom of the container */
+        }
+
+        .mydiv11 { 
+            width: 30px; 
+            height: 50px; 
+            position: relative; 
+            left: 800px;
+        }
+
+        .mydiv11 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -450px; /* Position at the bottom of the container */
+        }
+
+        .mydiv12 { 
+            width: 30px; 
+            height: 50px; 
+            position: relative; 
+            left: 1000px;
+        }
+
+        .mydiv12 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -450px; /* Position at the bottom of the container */
+        }
+
+        .mydiv13 { 
+            width: 30px; 
+            height: 50px; 
+            position: relative; 
+            left: 150px;
+        }
+
+        .mydiv13 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -400px; /* Position at the bottom of the container */
+        }
+
+        .mydiv14 { 
+            width: 40px; 
+            height: 60px; 
+            position: relative; 
+            left: 200px;
+        }
+
+        .mydiv14 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -600px; /* Position at the bottom of the container */
+        }
+
+        .mydiv15 { 
+            width: 40px; 
+            height: 60px; 
+            position: relative; 
+            left: 400px;
+        }
+
+        .mydiv15 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -700px; /* Position at the bottom of the container */
+        }
+
+        .mydiv16 { 
+            width: 40px; 
+            height: 60px; 
+            position: relative; 
+            left: 200px;
+        }
+
+        .mydiv16 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -600px; /* Position at the bottom of the container */
+        }
+
+        .mydiv17 { 
+            width: 40px; 
+            height: 60px; 
+            position: relative; 
+            left: 1000px;
+        }
+
+        .mydiv17 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -650px; /* Position at the bottom of the container */
+        }
+
+        .mydiv18 { 
+            width: 40px; 
+            height: 60px; 
+            position: relative; 
+            left: 600px;
+        }
+
+        .mydiv18 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            top: -1000px; /* Position at the bottom of the container */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contentContainer">
+        <div id="formContainer">
+            <div id="formHeaderContainer">
+                <h2 id="formHeader">Login/sign up to save your score</h2>
+            </div>
+            <div id="formContentContainer">
+                <div id="formContentInnerContainer">
+                    <input type="text" id="fullName" placeholder="Name">
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="password" id="password" placeholder="Password">
+                    <h2 id="scoreDisplay"></h2>
+                    <div id="buttonContainer">
+                        <button id="signUpButton">Sign Up</button>
+                        <button id="signInButton">Sign In</button> 
+                        <!-- HTML !-->
+<button class="button-51" role="button">Button 51</button>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="secretContent">
+            <div id="buttonContainer1">
+                <h2 id="displayText">Your text will appear here</h2>
+                <button id="saveScoreButton" disabled>Save Score</button>
+                <button id="signOutButton">Sign out</button>
+            </div>
+            <div id="game" style="display: block;">
+                <script src="java5.js"></script>
+                <h1>LEVEL 5 <button id="startButton" onclick="start()" enabled>Start</button></h1>
+                <h2 id="message">Score: 0</h2>
+                <div class="mydiv" id="mydiv" onclick="tuesday()">  
+                    <img src="tui.png" id="bird1">
+                </div>
+                <div class="mydiv2" id="mydiv2" onclick="wednesday()">
+                    <img src="bird1.png" id="bird2"> 
+                </div>
+                <div class="mydiv3" id="mydiv3" onclick="thursday()"> 
+                    <img src="poss.png" id="poss">
+                </div>
+                <div class="mydiv4" id="mydiv4" onclick="friday()">
+                    <img src="rat.png" id="rat"> 
+                </div>
+                <div class="mydiv5" id="mydiv5" onclick="saturday()">
+                    <img src="stoat.png" id="stoat"> 
+                </div>
+                <div class="mydiv6" id="mydiv6" onclick="sunday()">
+                    <img src="kiwi.png" id="kiwi"> 
+                </div>
+                <div class="mydiv7" id="mydiv6" onclick="monday()">
+                    <img src="pigeon.png" id="pigeon"> 
+                </div>
+                <div class="mydiv8" id="mydiv8" onclick="january()">
+                    <img src="kak.png" id="kak"> 
+                </div>
+                <div class="mydiv9" id="mydiv9" onclick="february()">
+                    <img src="RatU.png" id="ratu"> 
+                </div>
+                <div class="mydiv10" id="mydiv10" onclick="march()">
+                    <img src="Kereru.png" id="kereru"> 
+                </div>
+                <div class="mydiv11" id="mydiv11" onclick="april()">
+                    <img src="butterfly.png" id="bfly"> 
+                </div>
+                <div class="mydiv12" id="mydiv12" onclick="may()">
+                    <img src="whitebutterfly.png" id="wfly"> 
+                </div>
+                <div class="mydiv13" id="mydiv13" onclick="april2()">
+                    <img src="butterfly.png" id="bfly2"> 
+                </div>
+                <div class="mydiv14" id="mydiv14" onclick="may2()">
+                    <img src="whitebutterfly.png" id="wfly2"> 
+                </div>
+                <div class="mydiv15" id="mydiv15" onclick="june()">
+                    <img src="bee1.png" id="bee1"> 
+                </div>
+                <div class="mydiv16" id="mydiv16" onclick="june2()">
+                    <img src="bee2.png" id="bee2"> 
+                </div>
+                <div class="mydiv17" id="mydiv17" onclick="july()">
+                    <img src="wasp1.png" id="wasp1"> 
+                </div>
+                <div class="mydiv18" id="mydiv18" onclick="july2()">
+                    <img src="wasp2.png" id="wasp2"> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="button-51" role="button" onclick="window.location.href='index.html';"></button>
+
+    <script type="module">
+        // Import necessary functions from Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+        import { getDatabase, ref, set, update, get, push } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+        // Firebase configuration object containing keys and identifiers for the app
+        const firebaseConfig = {
+            apiKey: "AIzaSyDW9v17UJm3ry7ccV7bz1To2NZdOdYBBV0",
+            authDomain: "tech-2024.firebaseapp.com",
+            databaseURL: "https://tech-2024-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "tech-2024",
+            storageBucket: "tech-2024.appspot.com",
+            messagingSenderId: "80121578021",
+            appId: "1:80121578021:web:48769f1b25026aec4675cc",
+            measurementId: "G-YK4JKH5603"
+        };
+
+        // Initialize Firebase app with the provided configuration
+        const app = initializeApp(firebaseConfig);
+        // Initialize Firebase Authentication
+        const auth = getAuth(app);
+        // Initialize Firebase Realtime Database
+        const database = getDatabase(app);
+
+        // Get references to the buttons 
+        const signUpButton = document.querySelector("#signUpButton");
+        const signInButton = document.querySelector("#signInButton");
+        const signOutButton = document.querySelector("#signOutButton");
+        const saveScoreButton = document.querySelector("#saveScoreButton");
+
+        // Function to save user's score history
+        const saveScoreHistory = async (userId, score) => {
+            // Reference to the user's score history in the database making sure it's under the userId
+            const scoreHistoryRef = ref(database, 'scoreHistory/' + userId);
+            // Create a new entry in the score history
+            const newScoreRef = push(scoreHistoryRef);
+            // Set the score and date in the new entry
+            await set(newScoreRef, {
+                score: score,
+                date: new Date().toISOString() // Current date and time in ISO format
+            });
+        };
+
+        // Function to handle user sign up
+        const userSignUp = async () => {
+            // Get email, password, and full name from the input fields
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const fullName = document.getElementById('fullName').value;
+
+            // Validate email and password
+            if (!validateEmail(email) || !validatePassword(password)) {
+                alert('Invalid email or password. Please check your input.');
+                return;
+            }
+
+            try {
+                // Create a new user with the provided email and password
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // Reference to the new user in the database
+                const userRef = ref(database, 'users/' + user.uid);
+                // User data to be saved in the database
+                const userData = {
+                    email: email,
+                    fullName: fullName,
+                    highscore: 0, // Initial highscore set to 0
+                    lastLogin: Date.now() // Timestamp of the last login
+                };
+
+                // Save user data in the database
+                await set(userRef, userData);
+                alert('User Signed Up Successfully!');
+            } catch (error) {
+                alert(error.message);
+            }
+        };
+
+        // Function to handle user sign in
+        const userSignIn = async () => {
+            // Get email and password from the input fields
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Validate email and password
+            if (!validateEmail(email) || !validatePassword(password)) {
+                alert('Invalid email or password. Please check your input.');
+                return;
+            }
+
+            try {
+                // Sign in the user with the provided email and password
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                alert('User Logged In Successfully!');
+            } catch (error) {
+                alert(error.message);
+            }
+        };
+
+        // Function to handle user sign out
+        const userSignOut = async () => {
+            try {
+                // Sign out the current user
+                await signOut(auth);
+                alert('User Signed Out Successfully!');
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        // Function to save the user's score
+        const saveUserScore = async () => {
+            // Get the currently signed-in user
+            const user = auth.currentUser;
+            if (!user) {
+                alert('No user is signed in.');
+                return;
+            }
+
+            // Get the score from local storage
+            const highscore = parseInt(localStorage.getItem('score')) || 0;
+
+            // Reference to the user in the database
+            const userRef = ref(database, 'users/' + user.uid);
+            // Get the current high score from the database
+            const userSnapshot = await get(userRef);
+            const currentHighscore = userSnapshot.exists() ? parseInt(userSnapshot.val().highscore) : 0;
+
+            // Determine the new high score
+            const newHighscore = Math.max(highscore, currentHighscore);
+            // User data updated in the database
+            const userData = {
+                highscore: newHighscore,
+                lastLogin: Date.now() // Timestamp of the last login
+            };
+
+            // Update the user's data in the database
+            await update(userRef, userData);
+            // Save the score history in the database
+            await saveScoreHistory(user.uid, highscore);
+            // Clear the score from local storage
+            localStorage.removeItem('score');
+            alert('Score Saved Successfully!');
+            // Disable the save score button
+            saveScoreButton.disabled = true;
+        };
+
+        // Function to check the authentication state
+        const checkAuthState = () => {
+            onAuthStateChanged(auth, user => {
+                const secretContent = document.getElementById('secretContent');
+                const formContainer = document.getElementById('formContainer');
+                if (user) {
+                    // If user is signed in, show the secret content and hide the form
+                    secretContent.style.display = 'block';
+                    formContainer.style.display = 'none';
+                    displayScoreHistory(user.uid); // Display the user's score history
+                } else {
+                    // If no user is signed in, hide the secret content and show the form
+                    secretContent.style.display = 'none';
+                    formContainer.style.display = 'block';
+                }
+            });
+        };
+
+        // Function to validate email format
+        function validateEmail(email) {
+            // Regular expression to test email format
+            const expression = /^[^@]+@\w+(\.\w+)+\w$/;
+            return expression.test(String(email).toLowerCase());
+        }
+
+        // Function to validate password length
+        function validatePassword(password) {
+            return password.length >= 6;
+        }
+
+        // Function to validate non-empty field
+        function validateField(field) {
+            return field.trim() !== '';
+        }
+
+        // Event listeners for DOM content loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get references to the full name input and display text
+            const input = document.getElementById('fullName');
+            const h2 = document.getElementById('displayText');
+
+            // Update display text as the user types their full name
+            input.addEventListener('input', () => {
+                h2.textContent = input.value;
+            });
+        });
+
+        // Event listeners for the buttons
+        signUpButton.addEventListener('click', userSignUp);
+        signInButton.addEventListener('click', userSignIn);
+        signOutButton.addEventListener('click', userSignOut);
+        saveScoreButton.addEventListener('click', saveUserScore);
+
+        // Check authentication state 
+        checkAuthState();
+    </script>

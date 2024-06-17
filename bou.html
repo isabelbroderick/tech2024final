@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        body {
+            background-color: rgb(189, 239, 245);
+            background-image: url(hills.jpeg);  
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0; /* Remove default body margin */
+            overflow-x: hidden; /* Hide horizontal overflow */
+    overflow-y: auto; /* Enable vertical overflow with scrollbars */
+        }
+  
+        .mydiv { 
+            width: 50px; 
+            height: 50px;
+            background-color: none;
+            position: relative;
+            left: 0; /* Position at the leftmost point of the screen */
+            top: 250px;
+        }
+
+        .mydiv img { 
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+
+        .mydiv2 { 
+            width: 50px; 
+            height: 50px;
+            background-color: none;
+            position: relative;
+            left: 100px; /* Position at the leftmost point of the screen */
+            top: 150px;
+        }
+
+        .mydiv2 img { 
+            width: 190px;
+            height: 190px;
+            position: absolute;
+        }
+        
+        .mydiv3 { 
+            width: 200px; 
+            height: 150px; 
+            position: relative; 
+            left: 30%;
+        }
+
+        .mydiv3 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -250px; /* Position at the bottom of the container */
+        }
+        .mydiv4 { 
+            width: 60px; 
+            height: 70px; 
+            position: relative; 
+            left: 100px;
+        }
+        .mydiv4 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -130px; /* Position at the bottom of the container */
+        }
+
+        .mydiv5 { 
+            width: 100px; 
+            height: 50px; 
+            position: relative; 
+            left: 180px;
+        }
+
+        .mydiv5 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -200px; /* Position at the bottom of the container */
+        }
+
+        .mydiv6 { 
+            width: 150px; 
+            height: 100px; 
+            position: relative; 
+            left: 300px;
+        }
+
+        .mydiv6 img { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+            bottom: -150px; /* Position at the bottom of the container */
+        }
+
+        .mydiv7 { 
+            width: 70px; 
+            height: 70px;
+            background-color: none;
+            position: relative;
+            left: 0; /* Position at the leftmost point of the screen */
+            top: -350px;
+        }
+
+        .mydiv7 img { 
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .mydiv8 { 
+            width: 70px; 
+            height: 70px;
+            background-color: none;
+            position: relative;
+            left: 0; /* Position at the leftmost point of the screen */
+            bottom: 150px;
+        }
+
+        .mydiv8 img { 
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .mydiv9 { 
+            width: 70px; 
+            height: 150px;
+            background-color: none;
+            position: relative;
+            left: 1200px; 
+            bottom: 150px;
+        }
+
+        .mydiv9 img { 
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid black;
+            z-index: 9999; /* Ensure popup appears on top of other elements */
+        }
+
+        .popup-content {
+            text-align: center;
+        max-height: 400px; /* Set a fixed height for the popup content */
+        overflow-y: auto; /* Enable vertical scrolling */
+        } 
+/* Grid styles */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-auto-rows: minmax(100px, auto); /* Auto-sized rows */
+    gap: 10px; /* Gap between grid items */
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+        
+   </style>
+   </style>
+</head>
+<body>
+    <h1> LEVEL 1 <button onclick="start()">Start</button> </h1> 
+   
+    <h2 id="message">Score: 0</h2>
+    <div id="highScore"></div>
+   
+    
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h1>Instructions</h1>
+            <p> hi welcome to pest persuit, the aim of this game is to kill the pests while leaving the native animals alone. below are a list of animals you may encouter at on various levels </p>
+            <div class="grid-container">
+                
+                <div class="grid-item"> <img src="tui.png"  style="max-width: 50%;"></div>
+                <div class="grid-item">tui, an endemic  nz bird, killing will minus 1 point</div>
+                <div class="grid-item"> <img src="bird1.png"  style="max-width: 50%;"></div>
+                <div class="grid-item"> Bellbird | Korimako an endemic nz bird killing will minus 1 point </div>
+                <div class="grid-item"> <img src="poss.png"  style="max-width: 50%;"></div>
+                <div class="grid-item"> Possum a pest to the NZ eco-system worth 1 point </div>
+                <div class="grid-item">  <img src="rat.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> rat a pest to the NZ eco-system worth 1 point </div>
+                <div class="grid-item">  <img src="stoat.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> stoat a pest to the NZ eco-system worth 1 point </div>
+                <div class="grid-item">  <img src="kiwi.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> kiwi an endemic nz bird killing will minus 1 point  </div>
+                 <div class="grid-item">  <img src="pigeon.png"  style="max-width: 20%;"> </div>
+                <div class="grid-item"> pigeon a pest to the NZ eco-system worth 1 point </div>
+                 <div class="grid-item">  <img src="kak.png"  style="max-width: 20%;"> </div>
+                <div class="grid-item"> kakapo an endemic nz bird killing will minus 1 point  </div>
+                <div class="grid-item">  <img src="Kereru.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> kereru an endemic nz bird killing will minus 1 point  </div>
+                <div class="grid-item">  <img src="whitebutterfly.png"  style="max-width: 20%;"> </div>
+                <div class="grid-item"> great white butterfly a pest to the NZ eco-system worth 3 points </div>
+                <div class="grid-item">  <img src="butterfly.png"  style="max-width: 20%;"> </div>
+                <div class="grid-item"> monarch butterfly  a native butterfly to nz killing will minus 3 point  </div>
+
+                <div class="grid-item">  <img src="wasp1.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> wasp a pest to the NZ eco-system worth 5points </div>
+                <div class="grid-item">  <img src="bee2.png"  style="max-width: 30%;"> </div>
+                <div class="grid-item"> NZ Digger bee a native bess to nz killing will minus 5 point  </div>
+
+            </div>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+    
+    
+    <div class="mydiv" id="mydiv" onclick="tuesday()">  
+        <img src="tui.png" id="bird1">
+    </div>
+    <div class="mydiv2" id="mydiv2" onclick="wednesday()">
+        <img src="bird1.png" id="bird2"> 
+    </div>
+
+    <div class="mydiv3" id="mydiv3" onclick="thursday ()"> 
+        <img src="poss.png" id="poss">
+    </div>
+
+    <div class="mydiv4" id="mydiv4" onclick="friday()">
+        <img src="rat.png" id="rat"> </div>
+
+     <div class="mydiv5" id="mydiv5" onclick="sataday()">
+      <img src="stoat.png" id="stoat"> </div>
+            
+     <div class="mydiv6" id="mydiv6" onclick="sunday()">
+     <img src="kiwi.png" id="kiwi"> </div>
+
+        <div class="mydiv7" id="mydiv6" onclick="monday()">
+         <img src="pigeon.png" id="pigeon"> </div>
+
+        <div class="mydiv8" id="mydiv8" onclick="january()">
+        <img src="kak.png" id="kak"> </div>
+
+        <div class="mydiv9" id="mydiv9" onclick="february()">
+        <img src="RatU.png" id="ratu"> </div>
+                        
+                    
+       
+                
+</body>
+<script> 
+  // generating random integers within specific ranges
+  var min = 1500;
+var max = 2000;
+const randomInteger = Math.floor(Math.random() * (max - min + 1)) + min;
+
+var min2 = 2000;
+var max2 = 3000;
+const randomInteger2 = Math.floor(Math.random() * (max2 - min2 + 1)) + min2;
+
+
+var score = 6;
+var gameStarted = false; // Variable to track if the game has started
+var intervalBird1;
+var intervalBird2;
+var intervalrat;
+var intervalposs;
+var intervalstoat;
+var intervalkiwi;
+var intervalpigeon;
+var intervalkak;
+var intervalratu;
+var bird1Position = 0;
+var bird2Position = 0;
+var possposition = 0;
+var ratposition = 0;
+var stoatposition = 0;
+var kiwiposition = 0;
+var pigeonposition = 0;
+var kakposition = 0;
+var ratuposition = 0;
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Add event listeners for each day's events
+    bird1.addEventListener('click', tuesday);
+    bird2.addEventListener('click', wednesday);
+    poss.addEventListener('click', thursday);
+    rat.addEventListener('click', friday);
+    stoat.addEventListener('click', sataday);
+    kiwi.addEventListener('click', sunday);
+    pigeon.addEventListener  ('click', monday);
+    kak.addEventListener('click', january);
+    ratu.addEventListener('click', february);
+
+
+
+    
+    
+});
+
+// Function to display the pop-up
+function displayPopup() {
+    var popup = document.getElementById('popup');
+    popup.style.display = 'block';
+}
+
+// Function to close the pop-up
+function closePopup() {
+    var popup = document.getElementById('popup');
+    popup.style.display = 'none';
+}
+
+// Call the displayPopup function when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    displayPopup();
+});
+function pigeonf(){
+    intervalpigeon = setInterval(() => {
+    pigeonposition -= 10; 
+    pigeon.style.left = pigeonposition + 'px';
+
+    
+    if (pigeonposition <= -10) {
+        pigeonposition = window.innerWidth;
+    }
+}, 60);  }
+
+function bird1f(){
+    intervalBird1 = setInterval(() => {
+        bird1Position -= 10; // Move bird1 to the left by 10 pixels (decrementing)
+        bird1.style.left = bird1Position + 'px';
+    
+        // Check if bird1 has reached the left side of the screen
+        if (bird1Position <= -10) {
+            bird1Position = window.innerWidth; // Reset bird1 position to the right side of the screen
+        }
+    }, 50);  //every 50 milliseconds
+    
+}
+function bird2f(){
+    intervalBird2 = setInterval(() => {
+        bird2Position += 10; // Move bird2 to the right by 10 pixels
+        bird2.style.left = bird2Position + 'px';
+        
+        // Check if bird2 has reached the end of the screen
+        if (bird2Position >= window.innerWidth) {
+            bird2Position = -200; // Reset bird2 position to the left side of the screen
+          
+        }
+    }, 100); // every 100 milliseconds
+
+}
+function possf () {
+         
+    intervalposs = setInterval(() => {
+        possposition += 10; 
+        poss.style.left = possposition + 'px';
+        
+        if (possposition >= window.innerWidth) {
+            possposition = -350; 
+          
+        }
+    }, 100); // every 100 milliseconds
+    
+}
+function ratf (){
+    
+    intervalrat = setInterval(() => {
+        ratposition += 10; 
+        rat.style.left = ratposition + 'px';
+        
+        if (ratposition >= window.innerWidth) {
+            ratposition = -350; 
+          
+        }
+    }, 60); // every 50 milliseconds
+
+}
+function stoatf () {
+    intervalstoat = setInterval(() => {
+        stoatposition -= 10; 
+        stoat.style.left = stoatposition + 'px';
+    
+       
+        if (stoatposition <= -350) {
+            stoatposition = window.innerWidth; 
+        }
+    }, 75);  
+    
+}
+function kiwif (){
+    intervalkiwi = setInterval(() => {
+        kiwiposition += 10; 
+        kiwi.style.left = kiwiposition + 'px';
+        
+        if (kiwiposition >= window.innerWidth) {
+            kiwiposition = -700; 
+
+          
+        }
+    }, 70); // every 70 milliseconds
+}
+function kakf (){
+    intervalkak = setInterval(() => {
+        kakposition += 10; 
+        kak.style.left = kakposition + 'px';
+        
+        if (kakposition >= window.innerWidth) {
+            kakposition = -100; 
+
+          
+        }
+    }, 65); 
+
+}
+
+function ratuf() {
+    clearInterval(intervalratu); // Clear any existing interval
+    if (ratuposition < 400) {
+        // Move the rat up
+        intervalratu = setInterval(() => {
+            ratuposition += 10; 
+            ratu.style.bottom = ratuposition + 'px';
+            if (ratuposition >= 400) {
+                clearInterval(intervalratu); // Stop the rat when it reaches the top
+                ratuf(); // Call ratuf again to start moving down
+            }
+        }, 65);
+    } else {
+        // Rotate the rat and move it down
+        ratu.style.transform = "rotate(180deg)"; // Rotate the rat 180 degrees
+        intervalratu = setInterval(() => {
+            ratuposition -= 10; 
+            ratu.style.bottom = ratuposition + 'px';
+            if (ratuposition <= 0) {
+                // Stop the rat when it reaches the bottom
+                ratu.style.transform = "rotate(360deg)";
+                ratuf()
+                ; // Call ratuf again to start moving up
+            }
+        }, 65);
+    }
+}
+
+
+
+  
+    
+    
+
+function start() {
+    // Set gameStarted to true when the game starts
+    gameStarted = true;
+
+    pigeonf();
+    bird1f();
+    bird2f();
+    possf();
+    ratf();
+    stoatf();
+    kiwif();
+    kakf();
+    ratuf();
+
+    setTimeout(() => {
+        clearInterval(intervalBird2);
+        clearInterval(intervalBird1);
+        clearInterval(intervalkak);
+        clearInterval(intervalkiwi);
+        clearInterval(intervalpigeon);
+        clearInterval(intervalposs);
+        clearInterval(intervalrat);
+        clearInterval(intervalratu);
+        clearInterval(intervalstoat);
+       
+      // Display pop-up based on the score
+displayPopUp(score);
+}, 10); }// 20000 milliseconds = 20 seconds
+
+function displayPopUp(score) {
+    // Create a div for the pop-up
+    var popup = document.createElement("div");
+    popup.setAttribute("style", "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 2px solid black;");
+
+    // Create elements for pop-up content
+    var title = document.createElement("h1");
+    var message = document.createElement("h2");
+    var additionalMessage = document.createElement("p");
+
+    // Set title and message based on the score
+    if (score < 1) {
+        title.textContent = "You Failed";
+        message.textContent = "Try again!";
+    } else if (score < 6) {
+        title.textContent = "1 Star score 6 or above for the next star";
+        message.textContent = "Hmm, you did okay. Move on or retry and see if you can score better.";
+        additionalMessage.textContent = "Be careful, the animals will be moving a lot faster this time.";
+    } else if (score < 11) {
+        title.textContent = "2 Stars score 11 or above for the next star";
+        message.textContent = "Good job! Either try and improve or move on to the next level.";
+        additionalMessage.textContent = "Be careful, the animals will be moving a lot faster this time.";
+    } else {
+        title.textContent = "3 Stars";
+        message.textContent = "Well done! You clearly know your pests. Time to move on to the next level.";
+        additionalMessage.textContent = "Be careful, the animals will be moving a lot faster this time.";
+    }
+
+    // Create buttons for retry and next level
+    var retryButton = document.createElement("button");
+    retryButton.textContent = "Retry";
+    retryButton.onclick = function() {
+        location.reload(); // Reload the current page to start again
+    };
+
+    var nextLevelButton = document.createElement("button");
+    nextLevelButton.textContent = "Next Level";
+    nextLevelButton.onclick = function() {
+        window.location.href = "level2.html"; // Redirect to level 2 page
+    };
+    nextLevelButton.style.display = (score >= 1) ? "inline-block" : "none"; // Show only if score is 1 or more
+
+    var login = document.createElement("button");
+    login.textContent = "log as new highscore";
+    login.onclick = function() {
+        window.location.href = "login.html"; // Redirect to level 2 page
+    };
+
+    // Append elements to the pop-up
+    popup.appendChild(title);
+    popup.appendChild(message);
+    popup.appendChild(additionalMessage);
+    popup.appendChild(retryButton);
+    popup.appendChild(nextLevelButton);
+    popup.appendChild(login);
+
+    // Append the pop-up to the body of the HTML document
+    document.body.appendChild(popup);
+}
+function handleElement(event, target, scoreChange) {
+    if (gameStarted && event.target === target) {
+        score += scoreChange; // Update the score
+        localStorage.setItem('score', score); // Store the score in localStorage
+        message.textContent = "Score: " + score; // Update the score display
+        target.style.pointerEvents = 'none';
+        target.style.visibility = 'hidden'; // Hide the image if exists
+    }
+    setTimeout(() => {
+        target.style.pointerEvents = 'auto';
+        target.style.visibility = 'visible'; // Show the image again if exists
+    }, 3000);
+}
+
+function tuesday(event) {
+    handleElement(event, bird1, -1);
+}
+
+function wednesday(event) {
+    handleElement(event, bird2, -1);
+}
+
+function thursday(event) {
+    handleElement(event, poss, 1);
+}
+
+function friday(event) {
+    handleElement(event, rat, 1);
+}
+
+function sataday(event) {
+    handleElement(event, stoat, 1);
+}
+
+function sunday(event) {
+    handleElement(event, kiwi, -1);
+}
+function monday(event) {
+    handleElement(event, pigeon, 1);
+}
+function january(event) {
+    handleElement(event, kak, -1);
+}
+function february(event) {
+    handleElement(event, ratu, 1);
+}
+localStorage.setItem(score); // Store the score in localStora
+</script>
+</html>
